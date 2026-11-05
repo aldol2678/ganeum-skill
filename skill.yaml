@@ -1,0 +1,5 @@
+name: ganeum
+title: Ganeum
+description: Finish the current request first, then decide and format the next valid actions for the active goal, using the Ganeum recommendation command system.
+category: Work and knowledge
+include_in_prompt: true
