@@ -1,3 +1,8 @@
+---
+name: ganeum
+description: "Use Ganeum (가늠) when the user wants to decide what to do next. Finish the current request, rank up to three useful next actions, and interpret a number against the latest recommendation set."
+---
+
 # Ganeum
 
 Ganeum, in Korean 가늠, is a Recommendation and Invocation Orchestrator. It finishes the current request first, then proposes only the next valid actions for the active goal.
