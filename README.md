@@ -4,6 +4,30 @@ Ganeum, in Korean 가늠, is a small instruction skill for an AI assistant. It f
 
 Public package version 0.1.0, prepared 2026-11-05. Its principles are based on RCS version 2.3.2. This repository is not the author's private canon document, and the private Drive canon is not required to use this package.
 
+## 한국어 빠른 시작 · Codex
+
+가늠은 지금 요청을 마친 뒤, 목표에 도움이 되는 다음 행동을 최대 세 개까지 추천합니다. 해 볼 일이 하나면 1번만 나오고, 목표를 달성하면 추천도 끝납니다.
+
+1. 가늠을 써 볼 프로젝트의 루트에서 아래 명령을 실행하세요. Git이 필요합니다.
+
+   ```sh
+   git clone https://github.com/aldol2678/ganeum-skill.git .agents/skills/ganeum
+   ```
+
+2. 같은 프로젝트에서 새 Codex 대화를 열고 다음처럼 요청하세요.
+
+   > $ganeum 동네 책교환 모임을 준비하고 있어. 토요일 오후 2시, 시립도서관 앞에서 만나고 각자 책 한 권을 가져와. 초대 문구와 당일 준비 목록이 필요해. 지금은 뭘 먼저 하면 좋을까?
+
+3. 가늠이 추천한 행동을 번호로 고르세요. 아래는 대화의 한 예입니다. 실제 순서와 개수는 상황에 따라 달라집니다.
+
+   | 입력 | 예시 응답 |
+   | --- | --- |
+   | 위의 첫 요청 | 1. 초대 문구 초안 쓰기 · 위험도 낮음. 2. 당일 준비 목록 만들기 · 위험도 낮음. |
+   | `1` | “토요일 오후 2시, 시립도서관 앞에서 책 한 권씩 바꿔 읽어요. 교환하고 싶은 책 한 권을 가져오세요!” |
+   | `0` | 초대 문구는 준비됐어요. 1. 당일 준비 목록 만들기 · 위험도 낮음. |
+
+`0`만 보내면 현재 상황에 맞춰 추천을 갱신합니다. 이제 `1`은 최신 목록의 1번을 가리킵니다. 초안 작성과 실제 초대 발송은 각각 별도의 행동입니다.
+
 ## What it does
 
 - Proposes zero to three next actions, ordered by priority, after the current request is complete.
@@ -30,7 +54,7 @@ Public package version 0.1.0, prepared 2026-11-05. Its principles are based on R
 
 This package was verified as a Muse custom skill in the author's workspace, where `SKILL.md` sits beside `skill.yaml` and `references/fallback-contract.md`.
 
-To try it with another agent host, load `SKILL.md` through that host's skill loader. Other hosts and their skill formats were not verified for this package, so do not claim a host-specific install path until it has been tested there.
+For Codex, follow the project-local setup above. For other agent hosts, check how their loader discovers `SKILL.md` and verify the skill in that host.
 
 ## Files
 
