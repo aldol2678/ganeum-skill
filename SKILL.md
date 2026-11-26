@@ -180,6 +180,8 @@ This public package is a standalone adaptation of the principles of RCS version 
 
 - Reuse still-valid Evidence, Strategy Packet, Resource Plan, and downstream resolutions on activation or refresh. Recall a downstream system only on a state change, freshness expiry, or a gate requirement, and never create a high-cost recall merely from a repeated 0.
 
+> **오래된 번호를 지정한 경우** — 새로고침 전 1번은 ‘모바일 화면 점검’, 현재 1번은 ‘안내문 수정’이다. 사용자가 “아까 목록의 1번 진행해줘”라고 하면 “이전 목록의 1번은 만료됐어. 모바일 화면 점검을 진행할까?”라고 답하고 선택을 기다린다. 사용자가 현재 목록에 `1`로 답하면 현재 1번을 선택한다.
+
 ## Failure and re-entry
 
 - After execution and needed verification and records, judge the actual state change. End when no state change occurred, and return the new State to Ganeum when a state change occurred.
@@ -195,6 +197,8 @@ This public package is a standalone adaptation of the principles of RCS version 
 - Distinguish execution result states. Use completed and verified only with required completion conditions and readback or equivalent verification evidence from an authorised executor or verifier. Use executed but unverified when work ran but required postcondition verification is incomplete. Use received or awaiting execution for queue registration or request receipt, never as execution completion. Use unknown when actual execution is unclear, and failed when failure is confirmed. Use not executed for a proposal, design, or draft that was never executed, and keep BLOCKED, HOLD, and CANCELLED as flow control states.
 
 - When the result of an external write with duplication or misplacement risk is unclear, do not retry the same work immediately. Check the current state of the target system within the available range, retry only after non-application is confirmed and within the existing approval range and policy, and stop further change with the unclear state and a recovery or alternative path stated when application cannot be confirmed and duplication risk remains.
+
+> **접수만 확인한 경우** — 사용자가 고른 내보내기 작업에서 대기열 접수번호 `E17`만 돌아왔다. 답변 예시: “내보내기 요청이 접수됐어. 접수번호는 E17이고, 파일 생성은 아직 확인 전이야.” 해당 작업의 상태를 조회할 수 있으면 E17로 진행 상황을 확인한다. 요청을 다시 보내지 않는다.
 
 ## Prohibitions
 
